@@ -3,7 +3,7 @@ import GalleryItem from "./GalleryItem";
 import Masonry from "react-masonry-component";
 
 const GalleryList = props => {
-  const { data, changeOpenImage } = props;
+  const { data, changeOpenImage, openModal } = props;
   // console.log(data);
   return (
     <Masonry>
@@ -13,6 +13,7 @@ const GalleryList = props => {
           key={item.id}
           {...item}
           changeOpenImage={changeOpenImage}
+          openModal={openModal}
         />
       ))}
     </Masonry>

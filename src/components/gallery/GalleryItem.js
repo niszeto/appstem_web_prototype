@@ -6,7 +6,8 @@ const GalleryItem = props => {
   const {
     urls: { regular },
     alt_description,
-    changeOpenImage
+    changeOpenImage,
+    openModal
   } = props;
 
   return (
@@ -15,7 +16,8 @@ const GalleryItem = props => {
       alt={alt_description}
       className={styles.image}
       onClick={() => {
-        changeOpenImage(regular);
+        changeOpenImage({ url: regular, alt: alt_description });
+        openModal();
       }}
     />
   );

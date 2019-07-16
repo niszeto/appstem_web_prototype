@@ -4,6 +4,7 @@ import axios from "axios";
 
 import Spinner from "../components/layout/Spinner";
 import GalleryList from "../components/gallery/GalleryList";
+import ImageModal from "../components/modal/ImageModal";
 
 const Home = props => {
   const [isLoading, setIsLoading] = useState(false);
@@ -34,8 +35,8 @@ const Home = props => {
       }
     }
   ]);
-  const [openImage, setOpenImage] = useState("");
-  // const [isModalOpen, setIsModalOpen] = useState(false);
+  const [openImage, setOpenImage] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
   // const [Alert, setAlert] = useState(null);
 
   useEffect(() => {
@@ -53,19 +54,38 @@ const Home = props => {
     setIsLoading(false);
   };
 
-  const changeOpenImage = url => {
-    setOpenImage(url);
+  const changeOpenImage = imageDetails => {
+    setOpenImage(imageDetails);
   };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  console.log(isModalOpen);
 
   return (
     <div className="container">
-      <img src={openImage} alt="" />
+      {/* <img src={openImage} alt="" /> */}
       <Search />
       {isLoading ? (
         <Spinner />
       ) : (
-        <GalleryList data={imagesData} changeOpenImage={changeOpenImage} />
+        <GalleryList
+          data={imagesData}
+          changeOpenImage={changeOpenImage}
+          openModal={openModal}
+        />
       )}
+      <ImageModal
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+        openImage={openImage}
+      />
     </div>
   );
 };

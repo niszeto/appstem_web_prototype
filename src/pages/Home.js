@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Search from "../components/Search";
+import Search from "../components/search/Search";
 import axios from "axios";
 
 import Spinner from "../components/layout/Spinner";
@@ -35,11 +35,11 @@ const Home = props => {
     }
   ]);
   const [openImage, setOpenImage] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   // const [Alert, setAlert] = useState(null);
 
   useEffect(() => {
-    const searchText = "cake";
+    // const searchText = "cake";
     // getImages(searchText);
     // eslint-disable-next-line
   }, []);
@@ -59,6 +59,7 @@ const Home = props => {
 
   return (
     <div className="container">
+      <img src={openImage} alt="" />
       <Search />
       {isLoading ? (
         <Spinner />

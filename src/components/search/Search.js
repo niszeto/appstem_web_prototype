@@ -15,6 +15,8 @@ const Search = props => {
     if (searchText !== "") {
       getImages(searchText);
     }
+
+    event.stopPropagation();
   };
 
   return (

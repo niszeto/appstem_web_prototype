@@ -4,13 +4,17 @@ import styles from "./Search.module.css";
 const Search = props => {
   const [searchText, setSearchText] = useState("");
 
+  const { getImages } = props;
+
   const onSearchTextChange = event => {
     setSearchText(event.target.value);
   };
 
   const search = event => {
     event.preventDefault();
-    console.log(searchText);
+    if (searchText !== "") {
+      getImages(searchText);
+    }
   };
 
   return (

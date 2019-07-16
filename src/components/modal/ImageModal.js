@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 
-import styles from "./ImageModal.module.css";
+// import styles from "./ImageModal.module.css";
 
 const ImageModal = props => {
   const { isModalOpen, closeModal, openImage } = props;

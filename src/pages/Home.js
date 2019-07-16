@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Search from "../components/search/Search";
 import axios from "axios";
 
@@ -8,42 +8,9 @@ import ImageModal from "../components/modal/ImageModal";
 
 const Home = props => {
   const [isLoading, setIsLoading] = useState(false);
-  const [imagesData, setImagesData] = useState([
-    {
-      id: "U7N6XFvTBjU",
-      alt_description: "round white floral 4-tiered fondant cake",
-      urls: {
-        regular:
-          "https://images.unsplash.com/photo-1525257831700-183b9b8bf5c4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjgxOTEwfQ"
-      }
-    },
-    {
-      id: "fXAuCMEYGY4",
-      alt_description: "4-layered fondant cake on table",
-      urls: {
-        regular:
-          "https://images.unsplash.com/photo-1535254973040-607b474cb50d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjgxOTEwfQ"
-      }
-    },
-    {
-      id: "_B7shfNUXEA",
-      alt_description:
-        "close-up photography of 3-tier vanilla cake with blueberry and strawberry toppings",
-      urls: {
-        regular:
-          "https://images.unsplash.com/photo-1535141192574-5d4897c12636?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjgxOTEwfQ"
-      }
-    }
-  ]);
+  const [imagesData, setImagesData] = useState([]);
   const [openImage, setOpenImage] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [Alert, setAlert] = useState(null);
-
-  useEffect(() => {
-    // const searchText = "cake";
-    // getImages(searchText);
-    // eslint-disable-next-line
-  }, []);
 
   const getImages = async searchText => {
     setIsLoading(true);
@@ -66,12 +33,9 @@ const Home = props => {
     setIsModalOpen(true);
   };
 
-  console.log(isModalOpen);
-
   return (
     <div className="container">
-      {/* <img src={openImage} alt="" /> */}
-      <Search />
+      <Search getImages={getImages} />
       {isLoading ? (
         <Spinner />
       ) : (

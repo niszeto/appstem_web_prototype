@@ -1,0 +1,21 @@
+.searchBar {
+  display: block;
+  width: 100%;
+  margin: 1.2rem 0;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}
+
+.searchButton{
+  display: block;
+  width: 100%;
+  font: inherit;
+  background: #37A866;
+  color: #FFFFFF;
+  padding: 0.4rem 1.3rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  outline: none;
+}

@@ -38,7 +38,7 @@ const Home = props => {
 
   useEffect(() => {
     const searchText = "cake";
-    // getImages(searchText);
+    getImages(searchText);
     // eslint-disable-next-line
   }, []);
 

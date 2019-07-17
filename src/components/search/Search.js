@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import ImageContext from "../../context/image/imageContext";
 import styles from "./Search.module.css";
 
 const Search = props => {
+  const imageContext = useContext(ImageContext);
   const [searchText, setSearchText] = useState("");
 
-  const { getImages } = props;
+  const { getImagesData } = imageContext;
 
   const onSearchTextChange = event => {
     setSearchText(event.target.value);
@@ -13,7 +15,7 @@ const Search = props => {
   const search = event => {
     event.preventDefault();
     if (searchText !== "") {
-      getImages(searchText);
+      getImagesData(searchText);
     }
 
     event.stopPropagation();

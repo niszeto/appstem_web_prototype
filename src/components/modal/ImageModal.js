@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Modal from "react-modal";
-
+import ImageContext from "../../context/image/imageContext";
 import styles from "./ImageModal.module.css";
 
 const ImageModal = props => {
-  const { isModalOpen, closeModal, openImage } = props;
+  const imageContext = useContext(ImageContext);
+  const { isModalOpen, closeModal, modalImageData } = imageContext;
 
   return (
     <Modal
@@ -14,7 +15,11 @@ const ImageModal = props => {
       className={styles.modalContainer}
       ariaHideApp={false}
     >
-      <img src={openImage.url} alt={openImage.alt} className={styles.image} />
+      <img
+        src={modalImageData.url}
+        alt={modalImageData.alt}
+        className={styles.image}
+      />
     </Modal>
   );
 };

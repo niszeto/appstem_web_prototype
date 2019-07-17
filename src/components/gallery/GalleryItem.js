@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import ImageContext from "../../context/image/imageContext";
 import styles from "./GalleryItem.module.css";
 
 const GalleryItem = props => {
-  // console.log(props);
+  const imageContext = useContext(ImageContext);
+  const { setModalData } = imageContext;
+
   const {
     urls: { regular },
-    alt_description,
-    changeOpenImage,
-    openModal
+    alt_description
   } = props;
 
   return (
@@ -16,8 +17,7 @@ const GalleryItem = props => {
       alt={alt_description}
       className={styles.image}
       onClick={() => {
-        changeOpenImage({ url: regular, alt: alt_description });
-        openModal();
+        setModalData({ url: regular, alt: alt_description });
       }}
     />
   );

@@ -1,20 +1,16 @@
-import React from "react";
-import GalleryItem from "./GalleryItem";
+import React, { useContext } from "react";
+import ImageContext from "../../context/image/imageContext";
 import Masonry from "react-masonry-component";
+import GalleryItem from "./GalleryItem";
 
 const GalleryList = props => {
-  const { data, changeOpenImage, openModal } = props;
-  // console.log(data);
+  const imageContext = useContext(ImageContext);
+  const { imagesData } = imageContext;
+
   return (
     <Masonry>
-      {// add on click to update open photo
-      data.map(item => (
-        <GalleryItem
-          key={item.id}
-          {...item}
-          changeOpenImage={changeOpenImage}
-          openModal={openModal}
-        />
+      {imagesData.map(item => (
+        <GalleryItem key={item.id} {...item} />
       ))}
     </Masonry>
   );

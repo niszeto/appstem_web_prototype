@@ -50,14 +50,14 @@ const ImageState = props => {
     <ImageContext.Provider
       value={{
         isLoading: state.isLoading,
-        setLoading,
         imagesData: state.imagesData,
-        getImagesData,
         isModalOpen: state.isModalOpen,
+        modalImageData: state.modalImageData,
+        setLoading,
+        getImagesData,
         openModal,
         closeModal,
-        setModalData,
-        modalImageData: state.modalImageData
+        setModalData
       }}
     >
       {props.children}

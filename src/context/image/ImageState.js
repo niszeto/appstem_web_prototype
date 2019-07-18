@@ -12,6 +12,14 @@ import {
 } from "../types";
 import axios from "axios";
 
+let unsplashClientID = process.env.UNSPLASH_CLIENT_ID;
+let unsplashClientSecret = process.env.UNSPLASH_CLIENT_SECRET;
+
+if (process.env.NODE_ENV !== "production") {
+  unsplashClientID = process.env.REACT_APP_UNSPLASH_CLIENT_ID;
+  unsplashClientSecret = process.env.REACT_APP_UNSPLASH_CLIENT_SECRET;
+}
+
 const ImageState = props => {
   const initialState = {
     isLoading: false,
@@ -26,7 +34,7 @@ const ImageState = props => {
 
   const getImagesData = async searchText => {
     setLoading();
-    const url = `https://api.unsplash.com/search/photos?query=${searchText}&client_id=57c702829b43f43fd1b82bc724b8aa9a744d7eed8c004899e93ec25d57003fd9`;
+    const url = `https://api.unsplash.com/search/photos?query=${searchText}&client_id=${unsplashClientID}&client_secret=${unsplashClientSecret}`;
 
     try {
       const response = await axios.get(url);

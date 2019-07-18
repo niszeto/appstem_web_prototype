@@ -14,7 +14,7 @@ const GalleryList = props => {
         {hasSearched && (
           <h1 className={styles.text}>Did you mean {`${searchText}`} ?</h1>
         )}
-        <h1 className={styles.text}>Search to display photos</h1>;
+        <h1 className={styles.text}>Search to display photos</h1>
       </Fragment>
     );
   }

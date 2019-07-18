@@ -64,7 +64,7 @@ export const oneDistanceFromWord = word => {
 
   word = word
     .toLowerCase()
-    .replace(/[^a-z]/gi, "")
+    .replace(/[^a-z ]/gi, "")
     .split("");
 
   results = results.concat(swapLettersInWord(word));
@@ -76,7 +76,7 @@ export const oneDistanceFromWord = word => {
 };
 
 export const correctWord = word => {
-  word = word.toLowerCase().replace(/[^a-z]/gi, "");
+  word = word.toLowerCase().replace(/[^a-z ]/gi, "");
   if (words[word]) {
     return word;
   }

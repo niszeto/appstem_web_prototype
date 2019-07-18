@@ -8,15 +8,12 @@ import styles from "./Home.module.css";
 
 const Home = props => {
   const imageContext = useContext(ImageContext);
-  const { isLoading, imagesData } = imageContext;
+  const { isLoading } = imageContext;
 
   return (
     <div className={styles.container}>
       <ImageModal />
       <Search />
-      {imagesData.length === 0 && (
-        <h1 className={styles.text}>Search to display photos</h1>
-      )}
       {isLoading ? <Spinner /> : <GalleryList />}
     </div>
   );

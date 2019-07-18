@@ -67,14 +67,14 @@ const ImageState = props => {
         imagesData: state.imagesData,
         isModalOpen: state.isModalOpen,
         modalImageData: state.modalImageData,
+        searchText: state.searchText,
+        hasSearched: state.hasSearched,
         setLoading,
         getImagesData,
         openModal,
         closeModal,
         setModalData,
-        searchText: state.searchText,
         setSearchText,
-        hasSearched: state.hasSearched,
         setSearched
       }}
     >

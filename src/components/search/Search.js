@@ -21,7 +21,7 @@ const Search = props => {
 
   const search = event => {
     event.preventDefault();
-    if (searchText !== "" || isLoading) {
+    if (searchText !== "" || !isLoading) {
       setLoading();
       setSearched(true);
       let word = correctWord(searchText);

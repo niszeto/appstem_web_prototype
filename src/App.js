@@ -3,7 +3,7 @@ import ImageState from "./context/image/ImageState";
 import Home from "./pages/Home";
 import "./App.css";
 
-function App() {
+const App = props => {
   return (
     <ImageState>
       <div className="App">
@@ -11,6 +11,6 @@ function App() {
       </div>
     </ImageState>
   );
-}
+};
 
 export default App;

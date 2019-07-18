@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import Modal from "react-modal";
 import ImageContext from "../../context/image/imageContext";
+import Modal from "react-modal";
 import styles from "./ImageModal.module.css";
 
 const ImageModal = props => {

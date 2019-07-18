@@ -1,34 +1,5 @@
 import words from "../assets/words_dictionary";
 
-const addOneLetterToWord = word => {
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  let results = [];
-
-  for (let i = 0; i <= word.length; i++) {
-    for (let j = 0; j < alphabet.length; j++) {
-      let newWord = word.slice();
-      newWord.splice(i, 0, alphabet[j]);
-      results.push(newWord.join(""));
-    }
-  }
-
-  return results;
-};
-
-const removeOneLetterFromWord = word => {
-  let results = [];
-
-  if (word.length > 1) {
-    for (let i = 0; i < word.length; i++) {
-      let newWord = word.slice();
-      newWord.splice(i, 1);
-      results.push(newWord.join(""));
-    }
-  }
-
-  return results;
-};
-
 const swapLettersInWord = word => {
   let results = [];
 
@@ -59,7 +30,36 @@ const replaceLetterInWord = word => {
   return results;
 };
 
-const oneDistanceFromWord = word => {
+const addOneLetterToWord = word => {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  let results = [];
+
+  for (let i = 0; i <= word.length; i++) {
+    for (let j = 0; j < alphabet.length; j++) {
+      let newWord = word.slice();
+      newWord.splice(i, 0, alphabet[j]);
+      results.push(newWord.join(""));
+    }
+  }
+
+  return results;
+};
+
+const removeOneLetterFromWord = word => {
+  let results = [];
+
+  if (word.length > 1) {
+    for (let i = 0; i < word.length; i++) {
+      let newWord = word.slice();
+      newWord.splice(i, 1);
+      results.push(newWord.join(""));
+    }
+  }
+
+  return results;
+};
+
+const generateWordsOneDistanceAway = word => {
   let results = [];
 
   word = word
@@ -67,10 +67,12 @@ const oneDistanceFromWord = word => {
     .replace(/[^a-z ]/gi, "")
     .split("");
 
-  results = results.concat(swapLettersInWord(word));
-  results = results.concat(replaceLetterInWord(word));
-  results = results.concat(addOneLetterToWord(word));
-  results = results.concat(removeOneLetterFromWord(word));
+  results = results.concat(
+    swapLettersInWord(word),
+    replaceLetterInWord(word),
+    addOneLetterToWord(word),
+    removeOneLetterFromWord(word)
+  );
 
   return results;
 };
@@ -80,7 +82,7 @@ const generateWordsTwoDistanceAway = wordsOneDistanceAway => {
 
   for (let i = 0; i < wordsOneDistanceAway.length; i++) {
     wordsTwoDistanceAway = wordsTwoDistanceAway.concat(
-      oneDistanceFromWord(wordsOneDistanceAway[i])
+      generateWordsOneDistanceAway(wordsOneDistanceAway[i])
     );
   }
 
@@ -134,10 +136,12 @@ export const correctWord = word => {
   foundWord = findWordInList(removeOneLetterWords);
   if (foundWord) return foundWord;
 
-  wordsOneDistanceAway = wordsOneDistanceAway.concat(swappedLetterWords);
-  wordsOneDistanceAway = wordsOneDistanceAway.concat(replaceLetterWords);
-  wordsOneDistanceAway = wordsOneDistanceAway.concat(addOneLetterWords);
-  wordsOneDistanceAway = wordsOneDistanceAway.concat(removeOneLetterWords);
+  wordsOneDistanceAway = wordsOneDistanceAway.concat(
+    swappedLetterWords,
+    replaceLetterWords,
+    addOneLetterWords,
+    removeOneLetterWords
+  );
 
   let wordsTwoDistanceAway = generateWordsTwoDistanceAway(wordsOneDistanceAway);
   foundWord = findWordInList(wordsTwoDistanceAway);

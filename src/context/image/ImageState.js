@@ -12,13 +12,8 @@ import {
 } from "../types";
 import axios from "axios";
 
-let unsplashClientID = process.env.UNSPLASH_CLIENT_ID;
-let unsplashClientSecret = process.env.UNSPLASH_CLIENT_SECRET;
-
-if (process.env.NODE_ENV !== "production") {
-  unsplashClientID = process.env.REACT_APP_UNSPLASH_CLIENT_ID;
-  unsplashClientSecret = process.env.REACT_APP_UNSPLASH_CLIENT_SECRET;
-}
+let unsplashClientID = process.env.REACT_APP_UNSPLASH_CLIENT_ID;
+let unsplashClientSecret = process.env.REACT_APP_UNSPLASH_CLIENT_SECRET;
 
 const ImageState = props => {
   const initialState = {

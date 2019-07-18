@@ -1,68 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Nisx Image Finder
 
-## Available Scripts
+[Live Demo](https://nixsimagefinder.netlify.com/)
 
-In the project directory, you can run:
+Correct Search:
+![Correct Search](./demo_images/normal_search_cake.jpg)
 
-### `npm start`
+Image Modal:
+![Image Modal](./demo_images/image_modal_beef.jpg)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Symbols and Numbers in Search
+![Symbols and Numbers Search](./demo_images/spellcheck_nylon.png)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Words Swapped Search:
+![Words Swapped Search](./demo_images/spellcheck_zebra.png)
 
-### `npm test`
+Incorrect spelling Search:
+![Incorrect Spelling Search](./demo_images/spellcheck_raccoon.jpg)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Best Match Search:
+![Best Match Search](./demo_images/spellcheck_best_match.png)
 
-### `npm run build`
+Best Match Search with No Results:
+![Best Match Search with No Results](./demo_images/spellcheck_best_match_empty_results.png)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## How to run locally
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites:
 
-### `npm run eject`
+-node.js
+-unsplash api key and secret
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Instructions:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [Clone repository](https://github.com/niszeto/appstem_web_prototype)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Create a ".env.local" file in the root of the application
+- Add below to your .env.local file
+  > REACT_APP_UNSPLASH_CLIENT_ID="YOUR UNSPLASH CLIENT ID"
+  > REACT_APP_UNSPLASH_CLIENT_SECRET="YOUR UNSPLASH CLIENT SECRET"
+- Type npm install to install dependencies of project
+- Type npm start and open [http://localhost:3000](http://localhost:3000) to view it in the browser.

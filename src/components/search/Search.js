@@ -31,7 +31,7 @@ const Search = props => {
   };
 
   return (
-    <form onSubmit={search}>
+    <form className={styles.container} onSubmit={search}>
       <input
         type="text"
         name="text"

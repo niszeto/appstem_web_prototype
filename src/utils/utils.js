@@ -99,17 +99,16 @@ const findWordInList = listOfWords => {
   Correcting a Word Steps: 
   Note: if at any point when generating words are found in dictionary it will return the first found word
 
-  1. makes all letters in word lowercase 
-  2. removes all symbols and numbers from
-  3. returns word if in word dictionary
-  4. if not in dictionary split the word into an array of characters
-  5. generate words with letters swapped
-  6. generate words with a replaced letter
-  7. generate words that adds a letter to the word
-  8. generate words that remove a letter from the word
-  9. if word still is not found put all words that are one distance away into one array
-  10. generate all words two distance away from all the words one distance away 
-  11. if word still not found return the given word that has symbols and numbers removed
+  1. makes all letters in word lowercase and removes all symbols and numbers
+  2. returns word if found in word dictionary after filtering invalid search characters
+  3. if word is not in dictionary split the word into an array of characters
+  4. generate words with letters swapped
+  5. generate words with a letter replaced
+  6. generate words that adds a letter to the word
+  7. generate words that remove a letter from the word
+  8. if word still is not found put all words that are one distance away into one array
+  9. generate all words two distance away from all the words one distance away 
+  10. if word still not found return the given word that has symbols and numbers removed
 */
 export const correctWord = word => {
   word = word.toLowerCase().replace(/[^a-z ]/gi, "");

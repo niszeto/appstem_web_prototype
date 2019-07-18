@@ -3,7 +3,9 @@ import {
   GET_IMAGES,
   OPEN_MODAL,
   CLOSE_MODAL,
-  SET_MODAL_DATA
+  SET_MODAL_DATA,
+  SET_SEARCH_TEXT,
+  SET_SEARCHED
 } from "../types";
 
 export default (state, action) => {
@@ -34,6 +36,16 @@ export default (state, action) => {
         ...state,
         imagesData: action.payload,
         isLoading: false
+      };
+    case SET_SEARCH_TEXT:
+      return {
+        ...state,
+        searchText: action.payload
+      };
+    case SET_SEARCHED:
+      return {
+        ...state,
+        hasSearched: action.payload
       };
     default:
       return state;

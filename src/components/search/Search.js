@@ -1,15 +1,21 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import ImageContext from "../../context/image/imageContext";
-import styles from "./Search.module.css";
 import { correctWord } from "../../utils/utils";
+import styles from "./Search.module.css";
 
 const Search = props => {
   const imageContext = useContext(ImageContext);
-  const { getImagesData, setLoading, isLoading } = imageContext;
-
-  const [searchText, setSearchText] = useState("");
+  const {
+    getImagesData,
+    setLoading,
+    isLoading,
+    searchText,
+    setSearchText,
+    setSearched
+  } = imageContext;
 
   const onSearchTextChange = event => {
+    setSearched(false);
     setSearchText(event.target.value);
   };
 
@@ -17,7 +23,7 @@ const Search = props => {
     event.preventDefault();
     if (searchText !== "" || isLoading) {
       setLoading();
-
+      setSearched(true);
       let word = correctWord(searchText);
       setSearchText(word);
       getImagesData(word);

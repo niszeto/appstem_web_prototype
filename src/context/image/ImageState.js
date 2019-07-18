@@ -6,7 +6,9 @@ import {
   GET_IMAGES,
   CLOSE_MODAL,
   OPEN_MODAL,
-  SET_MODAL_DATA
+  SET_MODAL_DATA,
+  SET_SEARCH_TEXT,
+  SET_SEARCHED
 } from "../types";
 import axios from "axios";
 
@@ -15,7 +17,9 @@ const ImageState = props => {
     isLoading: false,
     imagesData: [],
     isModalOpen: false,
-    modalImageData: {}
+    modalImageData: {},
+    searchText: "",
+    hasSearched: false
   };
 
   const [state, dispatch] = useReducer(imageReducer, initialState);
@@ -44,7 +48,14 @@ const ImageState = props => {
     dispatch({ type: SET_MODAL_DATA, payload: imageDetails });
   };
 
+  const setSearchText = searchText => {
+    dispatch({ type: SET_SEARCH_TEXT, payload: searchText });
+  };
+
   const setLoading = () => dispatch({ type: SET_LOADING });
+
+  const setSearched = status =>
+    dispatch({ type: SET_SEARCHED, payload: status });
 
   return (
     <ImageContext.Provider
@@ -57,7 +68,11 @@ const ImageState = props => {
         getImagesData,
         openModal,
         closeModal,
-        setModalData
+        setModalData,
+        searchText: state.searchText,
+        setSearchText,
+        hasSearched: state.hasSearched,
+        setSearched
       }}
     >
       {props.children}

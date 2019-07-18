@@ -10,7 +10,6 @@ import {
   SET_SEARCH_TEXT,
   SET_SEARCHED
 } from "../types";
-import axios from "axios";
 
 let unsplashClientID = process.env.REACT_APP_UNSPLASH_CLIENT_ID;
 let unsplashClientSecret = process.env.REACT_APP_UNSPLASH_CLIENT_SECRET;
@@ -32,8 +31,9 @@ const ImageState = props => {
     const url = `https://api.unsplash.com/search/photos?query=${searchText}&client_id=${unsplashClientID}&client_secret=${unsplashClientSecret}`;
 
     try {
-      const response = await axios.get(url);
-      dispatch({ type: GET_IMAGES, payload: response.data.results });
+      const response = await fetch(url);
+      const responseJSON = await response.json();
+      dispatch({ type: GET_IMAGES, payload: responseJSON.results });
     } catch (error) {
       console.log(error);
     }

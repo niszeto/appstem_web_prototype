@@ -33,6 +33,22 @@ When designing the website I assumed that I would need to write my own css so I 
 
 Before going into the spell checker I assumed that filtering all non letters and numbers and checking if the word exists in the dictionary before generating words one or two steps away. While implementing the spell checker I assumed that short circuiting after finding a correct word as soon as possible would be best for user experience as the user would not have to wait for the possible combinations to generate fully before returning any possible correct search result. The search functionality will only take into account the first found word and not the most frequent word as it is limited to how the algorithm is written with the given dictionary of words. I thought this would be acceptable as I would need a list of the most common words which seems out of scope for the spell checker.
 
+> Correcting a Word Steps Alogirthm:
+>
+> Note: if at any point when generating words are found in dictionary it will return the first found word
+> (steps 4 - 9)
+>
+> 1.  makes all letters in word lowercase and removes all symbols and numbers
+> 2.  returns word if found in word dictionary after filtering invalid search characters
+> 3.  if word is not in dictionary split the word into an array of characters
+> 4.  generate words with letters swapped
+> 5.  generate words with a letter replaced
+> 6.  generate words that adds a letter to the word
+> 7.  generate words that remove a letter from the word
+> 8.  if word still is not found put all words that are one distance away into one array
+> 9.  generate all words two distance away from all the words one distance away
+> 10. if word still not found return the given word that has symbols and numbers removed
+
 Possible errors would be the image search api(unsplash) which has no results from the search which in turn I would display the search word as it would show that it was searched. If the api is down then a loader will show after pressing search. I assumed this would be fine as the searches are up to what is available from the api itself.
 
 The assumptions made decided how the application would be designed, executed, and the interactions within the application. From how the spell checker would return the first available search to improve on user experience to which way I would make http requests.
@@ -56,6 +72,7 @@ The application was completed through iterations, assumptions and readability in
 ### Prerequisites:
 
 -node.js
+
 -unsplash api key and secret
 
 ### Instructions:
